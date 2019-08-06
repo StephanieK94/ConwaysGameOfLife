@@ -5,33 +5,22 @@ namespace ConwaysGameOfLife.Tests
 {
     public class GridTests
     {
-        private readonly Game game;
-        public GridTests()
-        {
-            game = new Game();
-        }
-
         [Fact]
-        public void GivenNewGame_WhenCallsGridOf1By1_ReturnsArrayOfSingleBoolean ()
+        public void GivenWidthAndHeightOf3By3_WhenGridSet_ReturnsArrayOf3By3Boolean ()
         {
-            var actual = game.Grid(1,1);
-            var expected = new bool[1 , 1] { { false } };
+            int width = 3;
+            int height = 3;
 
-            Assert.Equal( expected, actual );
-        }
+            Game game = new Game( width , height );
 
-        [Fact]
-        public void GivenNewGame_WhenCallsGridOf3By3_ReturnsArrayOf3By3Boolean ()
-        {
-            var actual = game.Grid( 3,3 );
-            var expected = new bool[3,3] 
-            { 
-                { false,false,false },
-                { false , false , false }, 
+            var expected = new bool[3 , 3]
+            {
+                { false , false , false },
+                { false , false , false },
                 { false , false , false }
             };
 
-            Assert.Equal( expected , actual );
+            Assert.Equal( expected , game.Grid );
         }
     }
 }

@@ -6,9 +6,33 @@ namespace ConwaysGameOfLife
 {
     public class Game
     {
-        public bool[,] Grid ( int p1 , int p2 )
+        private int width, height;
+        public int Width
         {
-            return new bool[p1 , p2];
+            get { return width; }
+            set { width = value; }
+        }
+
+        public int Height
+        {
+            get { return height; }
+            set { height = value; }
+        }
+
+        private bool[,] grid;
+        public bool[,] Grid
+        {
+            get { return grid; }
+            set { grid = value; }
+        }
+
+        public Game(int width, int height)
+        {
+            this.Width = width;
+            this.Height = height;
+
+            Grid = new bool[Width , Height];
         }
     }
+
 }
