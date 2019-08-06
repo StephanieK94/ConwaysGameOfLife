@@ -38,6 +38,15 @@ namespace ConwaysGameOfLife
         {
             var aliveCells = 0;
 
+            for(var x = row - 1 ; x <= row + 1 ; x++ )
+            {
+                for(var y = column -1 ; y <= column + 1 ; y++ )
+                {
+                    if ( !( ( x < 0 || y < 0 ) || ( x >= this.Width || y >= this.Height ) ) )
+                        if ( this.Grid[x , y] == true ) aliveCells++;
+                }
+            }
+
             return aliveCells;
         }
     }

@@ -41,7 +41,7 @@ namespace ConwaysGameOfLife.Tests
         }
 
         [Fact]
-        public void GivenGameGridCurrentCell_WhenGetsNeighbours_Returns0()
+        public void GivenGameGridCurrentCellHasNoNeighbours_WhenGetsNeighbours_Returns0()
         {
             int width = 3;
             int height = 3;
@@ -53,6 +53,22 @@ namespace ConwaysGameOfLife.Tests
             var aliveCells = game.GetNeighbouringCells(row,column );
 
             Assert.Equal( 0 ,  aliveCells);
+        }
+
+        [Fact]
+        public void GivenGameGridCurrentCellHasOneNeighbour_WhenGetsNeighbours_Returns1 ()
+        {
+            int width = 3;
+            int height = 3;
+
+            Game game = new Game( width , height );
+            game.Grid[0 , 1] = true;
+
+            var row = 0;
+            var column = 0;
+            var aliveCells = game.GetNeighbouringCells( row , column );
+
+            Assert.Equal( 1 , aliveCells );
         }
     }
 }
