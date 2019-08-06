@@ -70,5 +70,22 @@ namespace ConwaysGameOfLife.Tests
 
             Assert.Equal( 1 , aliveCells );
         }
+
+        [Fact]
+        public void GivenGameGridCurrentCellAndOneNeighbourAreTrue_WhenGetsNeighbours_Returns1 ()
+        {
+            int width = 3;
+            int height = 3;
+
+            Game game = new Game( width , height );
+            game.Grid[0 , 0] = true;
+            game.Grid[0 , 1] = true;
+
+            var row = 0;
+            var column = 0;
+            var aliveCells = game.GetNeighbouringCells( row , column );
+
+            Assert.Equal( 1 , aliveCells );
+        }
     }
 }
