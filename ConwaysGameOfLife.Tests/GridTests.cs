@@ -6,6 +6,21 @@ namespace ConwaysGameOfLife.Tests
     public class GridTests
     {
         [Fact]
+        public void GivenWidthAndHeightOf1By1_WhenGridSet_ReturnsArrayOf1Boolean ()
+        {
+            int width = 1;
+            int height = 1;
+
+            Game game = new Game( width , height );
+
+            var expected = new bool[1,1] { { false } };
+
+            Assert.Equal( expected , game.Grid );
+            Assert.Equal( 1 , game.Height );
+            Assert.Equal( 1 , game.Width );
+        }
+
+        [Fact]
         public void GivenWidthAndHeightOf3By3_WhenGridSet_ReturnsArrayOf3By3Boolean ()
         {
             int width = 3;
@@ -21,6 +36,8 @@ namespace ConwaysGameOfLife.Tests
             };
 
             Assert.Equal( expected , game.Grid );
+            Assert.Equal( 3 , game.Height );
+            Assert.Equal( 3 , game.Width );
         }
     }
 }
