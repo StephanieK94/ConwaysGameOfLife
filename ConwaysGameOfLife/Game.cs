@@ -33,6 +33,13 @@ namespace ConwaysGameOfLife
 
             Grid = new bool[Width , Height];
         }
+
+        public int GetNeighbouringCells ( int row , int column )
+        {
+            var aliveCells = 0;
+
+            return aliveCells;
+        }
     }
 
 }

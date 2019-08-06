@@ -39,5 +39,20 @@ namespace ConwaysGameOfLife.Tests
             Assert.Equal( 3 , game.Height );
             Assert.Equal( 3 , game.Width );
         }
+
+        [Fact]
+        public void GivenGameGridCurrentCell_WhenGetsNeighbours_Returns0()
+        {
+            int width = 3;
+            int height = 3;
+
+            Game game = new Game( width , height );
+            var row = 0;
+            var column = 0;
+
+            var aliveCells = game.GetNeighbouringCells(row,column );
+
+            Assert.Equal( 0 ,  aliveCells);
+        }
     }
 }
